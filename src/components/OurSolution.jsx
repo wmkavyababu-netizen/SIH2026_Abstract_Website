@@ -2,45 +2,60 @@ import React from 'react';
 
 const OurSolution = () => {
   return (
-    <section className="space-y-md">
+    <section id="our-solution" className="space-y-md scroll-mt-md">
       <h2 className="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
         <span className="material-symbols-outlined text-primary">architecture</span>
-        Our Solution
+        Our Solution – Tarang
       </h2>
       
       <div className="glass-card rounded-xl p-lg relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         
         <p className="font-body-lg text-on-surface-variant mb-lg relative z-10 max-w-3xl">
-          TARANG provides a fully automated, edge-native pipeline. We eliminate the need for manual review by deploying highly optimized deep learning models directly onto the autonomous underwater vehicles.
+          Tarang is India's first unified platform for AI-driven marine debris detection and cleanup planning. It connects raw Side-Scan Sonar logs to operational GIS outputs, providing standardized debris classes, confidence scores and prioritized recovery plans for agencies.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-md relative z-10">
-          <div className="bg-surface p-md rounded border border-outline-variant text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md relative z-10">
+          {/* Card 1 */}
+          <div className="bg-surface p-md rounded border border-outline-variant flex flex-col items-center text-center hover:shadow-sm transition-shadow duration-200">
             <span className="material-symbols-outlined text-display-lg text-primary mb-sm">sensors</span>
-            <h4 className="font-title-lg text-on-surface mb-xs">1. SSS Ingestion</h4>
-            <p className="text-code-sm text-on-surface-variant">Raw acoustic data acquisition.</p>
+            <h4 className="font-title-lg text-on-surface mb-xs">Sonar Ingestion</h4>
+            <p className="text-body-md text-on-surface-variant">Ingests live and uploaded SSS logs from multiple sonar formats.</p>
           </div>
           
-          <div className="bg-surface p-md rounded border border-outline-variant text-center relative">
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -z-10 -translate-y-1/2 -translate-x-1/2"></div>
-            <span className="material-symbols-outlined text-display-lg text-primary mb-sm bg-surface">blur_on</span>
-            <h4 className="font-title-lg text-on-surface mb-xs">2. Preprocessing</h4>
-            <p className="text-code-sm text-on-surface-variant">Denoising & enhancement.</p>
+          {/* Card 2 */}
+          <div className="bg-surface p-md rounded border border-outline-variant flex flex-col items-center text-center hover:shadow-sm transition-shadow duration-200">
+            <span className="material-symbols-outlined text-display-lg text-primary mb-sm">tune</span>
+            <h4 className="font-title-lg text-on-surface mb-xs">Intelligent Pipeline</h4>
+            <p className="text-body-md text-on-surface-variant">Applies an intelligent sonar pipeline for denoising, shadow handling, resolution enhancement and motion correction.</p>
           </div>
           
-          <div className="bg-surface p-md rounded border border-outline-variant text-center relative">
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -z-10 -translate-y-1/2 -translate-x-1/2"></div>
-            <span className="material-symbols-outlined text-display-lg text-primary mb-sm bg-surface">model_training</span>
-            <h4 className="font-title-lg text-on-surface mb-xs">3. Edge AI</h4>
-            <p className="text-code-sm text-on-surface-variant">YOLOv8 & U-Net Analysis.</p>
+          {/* Card 3 */}
+          <div className="bg-surface p-md rounded border border-outline-variant flex flex-col items-center text-center hover:shadow-sm transition-shadow duration-200">
+            <span className="material-symbols-outlined text-display-lg text-primary mb-sm">psychology</span>
+            <h4 className="font-title-lg text-on-surface mb-xs">AI Anomaly Detection</h4>
+            <p className="text-body-md text-on-surface-variant">Runs an AI-powered anomaly detection model to separate natural seabed features from artificial debris.</p>
           </div>
           
-          <div className="bg-surface p-md rounded border border-outline-variant text-center relative">
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -z-10 -translate-y-1/2 -translate-x-1/2"></div>
-            <span className="material-symbols-outlined text-display-lg text-primary mb-sm bg-surface">map</span>
-            <h4 className="font-title-lg text-on-surface mb-xs">4. Geotagging</h4>
-            <p className="text-code-sm text-on-surface-variant">Coordinate mapping.</p>
+          {/* Card 4 */}
+          <div className="bg-surface p-md rounded border border-outline-variant flex flex-col items-center text-center hover:shadow-sm transition-shadow duration-200">
+            <span className="material-symbols-outlined text-display-lg text-primary mb-sm">layers</span>
+            <h4 className="font-title-lg text-on-surface mb-xs">Duplicate Fusion</h4>
+            <p className="text-body-md text-on-surface-variant">Fuses repeated detections across pings and survey lines using spatial-temporal evidence, avoiding duplicate counts.</p>
+          </div>
+          
+          {/* Card 5 */}
+          <div className="bg-surface p-md rounded border border-outline-variant flex flex-col items-center text-center hover:shadow-sm transition-shadow duration-200">
+            <span className="material-symbols-outlined text-display-lg text-primary mb-sm">map</span>
+            <h4 className="font-title-lg text-on-surface mb-xs">GIS & Mission Planning</h4>
+            <p className="text-body-md text-on-surface-variant">Generates geo-tagged debris layers, risk scores and cleanup mission plans with estimated recovery loads.</p>
+          </div>
+          
+          {/* Card 6 */}
+          <div className="bg-surface p-md rounded border border-outline-variant flex flex-col items-center text-center hover:shadow-sm transition-shadow duration-200">
+            <span className="material-symbols-outlined text-display-lg text-primary mb-sm">description</span>
+            <h4 className="font-title-lg text-on-surface mb-xs">Standardized Export</h4>
+            <p className="text-body-md text-on-surface-variant">Exports standardized JSON, CSV and GeoJSON reports for integration with MoES/NIOT systems.</p>
           </div>
         </div>
       </div>

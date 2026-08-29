@@ -1,53 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import HeroSection from './components/HeroSection';
 import TelemetryPanel from './components/TelemetryPanel';
 import WhyThisPS from './components/WhyThisPS';
 import OurSolution from './components/OurSolution';
 import ExistingVsOur from './components/ExistingVsOur';
+import WhatTarangDetects from './components/WhatTarangDetects';
+import Affiliations from './components/Affiliations';
+import References from './components/References';
 
 function App() {
-  const [currentView, setCurrentView] = useState('dashboard');
+  const [currentView, setCurrentView] = useState('home');
 
-  const renderContent = () => {
-    switch (currentView) {
-      case 'analytics':
-        return (
-          <div className="flex flex-col items-center justify-center h-[60vh] text-center space-y-md">
-            <span className="material-symbols-outlined text-display-lg text-primary text-6xl">analytics</span>
-            <h2 className="font-display-lg text-on-surface">Analytics</h2>
-            <p className="text-on-surface-variant font-body-lg">Advanced reporting and data visualization coming soon.</p>
-          </div>
-        );
-      case 'missions':
-        return (
-          <div className="flex flex-col items-center justify-center h-[60vh] text-center space-y-md">
-            <span className="material-symbols-outlined text-display-lg text-primary text-6xl">explore</span>
-            <h2 className="font-display-lg text-on-surface">Missions</h2>
-            <p className="text-on-surface-variant font-body-lg">Mission planning and fleet management coming soon.</p>
-          </div>
-        );
-      case 'resources':
-        return (
-          <div className="flex flex-col items-center justify-center h-[60vh] text-center space-y-md">
-            <span className="material-symbols-outlined text-display-lg text-primary text-6xl">description</span>
-            <h2 className="font-display-lg text-on-surface">Resources</h2>
-            <p className="text-on-surface-variant font-body-lg">Documentation and API references coming soon.</p>
-          </div>
-        );
-      case 'dashboard':
-      default:
-        return (
-          <>
-            <HeroSection />
-            <TelemetryPanel />
-            <WhyThisPS />
-            <OurSolution />
-            <ExistingVsOur />
-          </>
-        );
-    }
-  };
+  useEffect(() => {
+    const sectionIds = [
+      'home',
+      'why-this-problem-statement',
+      'our-solution',
+      'existing-products-vs-tarang',
+      'what-tarang-detects',
+      'dashboard',
+      'affiliations',
+      'references'
+    ];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px',
+      threshold: 0,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCurrentView(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
 
   return (
     <div className="flex h-screen bg-background font-body-md text-on-surface overflow-hidden">
@@ -55,7 +59,15 @@ function App() {
       
       <div className="flex-1 overflow-y-auto">
         <main className="max-w-container-max mx-auto px-lg py-xl space-y-xl">
-          {renderContent()}
+          <HeroSection />
+          <hr className="border-t border-outline-variant/30 w-full" />
+          <WhyThisPS />
+          <OurSolution />
+          <ExistingVsOur />
+          <WhatTarangDetects />
+          <TelemetryPanel />
+          <Affiliations />
+          <References />
         </main>
         
         <footer className="bg-surface-container-low text-secondary full-width border-t border-outline-variant w-full py-xl px-lg mt-xl flex flex-col md:flex-row justify-between items-center gap-md max-w-container-max mx-auto font-body-md text-body-md">
@@ -64,10 +76,10 @@ function App() {
             <span>© 2026 Ministry of Earth Sciences. All rights reserved. Built for NIOT & SIH 2026.</span>
           </div>
           <div className="flex gap-lg font-label-md text-label-md text-on-secondary-container">
-            <a href="#" className="hover:text-primary transition-all duration-200">Architecture</a>
-            <a href="#" className="hover:text-primary transition-all duration-200">Technical Reports</a>
-            <a href="#" className="hover:text-primary transition-all duration-200">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-all duration-200">System Status</a>
+            <a href="#our-solution" className="hover:text-primary transition-all duration-200">Architecture</a>
+            <a href="#references" className="hover:text-primary transition-all duration-200">Technical Reports</a>
+            <a href="#affiliations" className="hover:text-primary transition-all duration-200">Affiliations</a>
+            <a href="#references" className="hover:text-primary transition-all duration-200">System Status</a>
           </div>
         </footer>
       </div>

@@ -4,14 +4,22 @@ const Sidebar = ({ currentView, setCurrentView }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
+    { id: 'home', label: 'Home', icon: 'home' },
+    { id: 'why-this-problem-statement', label: 'Why This Problem Statement', icon: 'psychology_alt' },
+    { id: 'our-solution', label: 'Our Solution', icon: 'architecture' },
+    { id: 'existing-products-vs-tarang', label: 'Existing Products vs Tarang', icon: 'compare_arrows' },
+    { id: 'what-tarang-detects', label: 'What Tarang Detects', icon: 'radar' },
     { id: 'dashboard', label: 'Dashboard', icon: 'dashboard' },
-    { id: 'analytics', label: 'Analytics', icon: 'analytics' },
-    { id: 'missions', label: 'Missions', icon: 'explore' },
-    { id: 'resources', label: 'Resources', icon: 'description' },
+    { id: 'affiliations', label: 'Affiliations', icon: 'handshake' },
+    { id: 'references', label: 'References', icon: 'menu_book' },
   ];
 
   const handleNavClick = (id) => {
     setCurrentView(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     setIsOpen(false);
   };
 

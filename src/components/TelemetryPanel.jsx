@@ -2,11 +2,15 @@ import React from 'react';
 
 const TelemetryPanel = () => {
   return (
-    <section className="space-y-md">
+    <section id="dashboard" className="space-y-md scroll-mt-md">
       <h2 className="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
         <span className="material-symbols-outlined text-primary">dashboard</span>
-        Mission Control Panel
+        Tarang Dashboard – What You Will See
       </h2>
+      
+      <p className="font-body-lg text-on-surface-variant max-w-3xl">
+        The Tarang dashboard is the operational interface for survey operators, scientists and authorities to explore, validate and act on seabed debris data.
+      </p>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-lg">
         {/* Left Diagnostic Card */}
@@ -71,6 +75,76 @@ const TelemetryPanel = () => {
               <div className="flex justify-between gap-md"><span className="text-on-surface-variant">LON:</span> 77.5946 E</div>
               <div className="flex justify-between gap-md"><span className="text-on-surface-variant">HDG:</span> 045°</div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Dashboard Features List */}
+      <div className="mt-xl space-y-md">
+        <h3 className="font-headline-sm text-headline-sm text-on-surface">Key Dashboard Modules</h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+          {/* Module 1 */}
+          <div className="glass-card rounded-xl p-md border border-outline-variant space-y-sm">
+            <h4 className="font-title-lg text-primary flex items-center gap-xs">
+              <span className="material-symbols-outlined">map</span>
+              Interactive Map View
+            </h4>
+            <ul className="list-disc pl-md text-body-md text-on-surface-variant space-y-xs">
+              <li>Survey tracks and coverage heatmaps.</li>
+              <li>Detected debris points with class icons (nets, barrels, tires, wrecks, etc.).</li>
+              <li>Risk layers (high/medium/low) and priority corridors.</li>
+            </ul>
+          </div>
+          
+          {/* Module 2 */}
+          <div className="glass-card rounded-xl p-md border border-outline-variant space-y-sm">
+            <h4 className="font-title-lg text-primary flex items-center gap-xs">
+              <span className="material-symbols-outlined">info</span>
+              Debris Details Panel
+            </h4>
+            <ul className="list-disc pl-md text-body-md text-on-surface-variant space-y-xs">
+              <li>For each object: class, dimensions, confidence, depth, location, survey ID.</li>
+              <li>Original sonar frame thumbnail with detection overlay.</li>
+              <li>Option to mark as "Verified", "False Positive" or "Needs Review".</li>
+            </ul>
+          </div>
+          
+          {/* Module 3 */}
+          <div className="glass-card rounded-xl p-md border border-outline-variant space-y-sm">
+            <h4 className="font-title-lg text-primary flex items-center gap-xs">
+              <span className="material-symbols-outlined">filter_alt</span>
+              Filters & Search
+            </h4>
+            <ul className="list-disc pl-md text-body-md text-on-surface-variant space-y-xs">
+              <li>Filter by class, confidence, depth, date, survey line, risk level.</li>
+              <li>Search by location, object ID or survey name.</li>
+            </ul>
+          </div>
+          
+          {/* Module 4 */}
+          <div className="glass-card rounded-xl p-md border border-outline-variant space-y-sm">
+            <h4 className="font-title-lg text-primary flex items-center gap-xs">
+              <span className="material-symbols-outlined">route</span>
+              Cleanup Mission Planner
+            </h4>
+            <ul className="list-disc pl-md text-body-md text-on-surface-variant space-y-xs">
+              <li>Clustered debris hotspots with estimated recovery load.</li>
+              <li>Suggested routes considering depth, distance and vessel constraints.</li>
+              <li>Exportable mission plan (CSV/GeoJSON).</li>
+            </ul>
+          </div>
+          
+          {/* Module 5 */}
+          <div className="glass-card rounded-xl p-md border border-outline-variant space-y-sm">
+            <h4 className="font-title-lg text-primary flex items-center gap-xs">
+              <span className="material-symbols-outlined">download</span>
+              Reports & Exports
+            </h4>
+            <ul className="list-disc pl-md text-body-md text-on-surface-variant space-y-xs">
+              <li>Download survey-wise debris summaries as JSON, CSV, GeoJSON.</li>
+              <li>Generate PDF snapshots of map views and risk summaries.</li>
+            </ul>
           </div>
         </div>
       </div>
