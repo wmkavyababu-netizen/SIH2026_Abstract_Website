@@ -39,8 +39,8 @@ const Sidebar = ({ currentView, setCurrentView }) => {
 
       {/* Sidebar / Navigation Drawer */}
       <aside className={`
-        fixed inset-y-0 left-0 z-40 w-72 bg-white border-r border-outline-variant flex flex-col transform transition-transform duration-300 ease-in-out select-none
-        md:relative md:translate-x-0
+        fixed inset-y-0 left-0 z-[60] w-72 bg-white border-r border-outline-variant flex flex-col transform transition-transform duration-300 ease-in-out select-none
+        md:relative md:translate-x-0 md:z-40
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
         {/* Sidebar Brand header (Desktop only) */}
@@ -79,7 +79,7 @@ const Sidebar = ({ currentView, setCurrentView }) => {
       {/* Mobile Drawer Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/40 z-30 md:hidden animate-fade-in"
+          className="fixed inset-0 bg-black/40 z-[55] md:hidden animate-fade-in"
           onClick={() => setIsOpen(false)}
         ></div>
       )}

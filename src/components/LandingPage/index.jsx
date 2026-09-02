@@ -28,10 +28,10 @@ export default function LandingPage({ onLaunch }) {
 
           {/* First Page Specific UI */}
           {idx === 0 && (
-             <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24">
+             <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24 overflow-y-auto lg:overflow-hidden pt-24 pb-12 lg:pt-0 lg:pb-0">
                 
                 {/* Left Content Area */}
-                <div className="z-10 flex flex-col items-start text-left text-white mt-32 lg:mt-0" style={{ maxWidth: '672px', width: '100%' }}>
+                <div className="z-10 flex flex-col items-start text-left text-white mt-12 lg:mt-0" style={{ maxWidth: '672px', width: '100%' }}>
                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-2xl font-sans">
                       AI-Driven Acoustic <br/>
                       Recognition & Automated <br/>
@@ -87,10 +87,10 @@ export default function LandingPage({ onLaunch }) {
 
           {/* Second Page Specific UI */}
           {idx === 1 && (
-             <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-20 pt-16 lg:pt-0">
+             <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-20 pt-24 pb-12 lg:pt-0 lg:pb-0 overflow-y-auto lg:overflow-hidden">
                 
                 {/* Left Content Area */}
-                <div className="w-full lg:w-[45%] z-10 flex flex-col items-start text-left text-white h-full justify-center lg:pl-8">
+                <div className="w-full lg:w-[45%] z-10 flex flex-col items-start text-left text-white h-auto lg:h-full justify-center lg:pl-8 mt-8 lg:mt-0">
                    <h1 className="text-3xl lg:text-5xl font-bold leading-tight drop-shadow-2xl font-sans mb-1">
                       Built for <span className="text-[#00e5ff]">Real-World</span>
                    </h1>
@@ -142,13 +142,13 @@ export default function LandingPage({ onLaunch }) {
 
           {/* Third Page Specific UI */}
           {idx === 2 && (
-             <div className="absolute inset-0 flex flex-col justify-between px-6 md:px-12 lg:px-20 pt-16 lg:pt-20 pb-10">
+             <div className="absolute inset-0 flex flex-col justify-between px-6 md:px-12 lg:px-20 pt-24 pb-12 lg:pt-20 lg:pb-10 overflow-y-auto lg:overflow-hidden">
                 
                 {/* Top Section */}
-                <div className="flex flex-col lg:flex-row w-full justify-between flex-1 relative">
+                <div className="flex flex-col lg:flex-row w-full justify-between flex-1 relative h-auto">
                    
                    {/* Left Content */}
-                   <div className="w-full lg:w-[45%] z-10 flex flex-col items-start text-left text-white h-full justify-center lg:pl-4">
+                   <div className="w-full lg:w-[45%] z-10 flex flex-col items-start text-left text-white h-auto lg:h-full justify-center lg:pl-4">
                       <h1 className="text-3xl lg:text-[2.5rem] font-bold leading-tight drop-shadow-2xl font-sans mb-1">
                          The Ultimate Edge Platform for
                       </h1>
@@ -237,10 +237,10 @@ export default function LandingPage({ onLaunch }) {
 
           {/* Fourth Page Specific UI */}
           {idx === 3 && (
-             <div className="absolute inset-0 flex flex-col lg:flex-row justify-between px-6 md:px-12 lg:px-20 pt-16 lg:pt-24 pb-10">
+             <div className="absolute inset-0 flex flex-col lg:flex-row justify-between px-6 md:px-12 lg:px-20 pt-24 pb-12 lg:pt-24 lg:pb-10 overflow-y-auto lg:overflow-hidden">
                 
                 {/* Left Content Area */}
-                <div className="w-full lg:w-[45%] z-10 flex flex-col items-start text-left text-white h-full justify-start lg:pl-4">
+                <div className="w-full lg:w-[45%] z-10 flex flex-col items-start text-left text-white h-auto lg:h-full justify-start lg:pl-4 mb-8 lg:mb-0">
                    <div className="text-[#00e5ff] text-sm md:text-base font-semibold mb-2">Sargassum is a big problem...</div>
                    
                    <h1 className="text-3xl lg:text-[2.75rem] font-bold leading-tight drop-shadow-2xl font-sans mb-1">
@@ -312,8 +312,6 @@ export default function LandingPage({ onLaunch }) {
           )}
         </div>
       ))}
-
-
     </div>
   );
 }
