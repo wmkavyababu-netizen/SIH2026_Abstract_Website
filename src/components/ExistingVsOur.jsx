@@ -1,53 +1,68 @@
 import React from 'react';
 
 const ExistingVsOur = () => {
-  const competitors = [
+  const comparisons = [
     {
-      title: "1. QGIS + Sonar Plugins (e.g., QPS, Sonar-QGIS)",
-      do: "Visualize and manually interpret side-scan sonar mosaics; some basic classification plugins exist.",
-      gaps: "Mostly manual interpretation; no automated debris detection. No standardized debris classes or confidence scores. No built-in duplicate fusion or national-scale debris atlas."
+      name: "GHOSTNETZERO.AI",
+      limit: "Primarily focused on ghost nets; cloud-oriented processing and not designed as a broad multi-class national seabed debris intelligence platform.",
+      diff: "Multi-class detection including ghost nets, ghost gear, shipwrecks, containers and anomalous/artificial objects, with edge-ready architecture and a unified intelligence layer."
     },
     {
-      title: "2. CARIS HIPS & SIPS",
-      do: "Professional hydrographic software for processing multibeam and side-scan sonar, creating bathymetry and mosaics.",
-      gaps: "Focused on hydrography and charting, not marine debris. Debris detection is manual or ad-hoc, not AI-driven. No dedicated risk engine or cleanup mission planning module."
+      name: "SONARWIZ ATR",
+      limit: "Commercial hydrography/target-analysis software with generic target detections rather than a dedicated marine-debris taxonomy and cleanup planning workflow.",
+      diff: "Marine debris taxonomy, AI-based classification, duplicate-aware fusion, risk scoring, GIS outputs and cleanup mission planning."
     },
     {
-      title: "3. Open-source Underwater Perception",
-      do: "Research-level models for object detection in underwater optical or sonar images.",
-      gaps: "Often tested on small, single-site datasets. Not integrated with survey metadata, GIS and reporting for agencies. No operational duplicate-aware fusion or national deployment framework."
+      name: "OCEAN AID ATR",
+      limit: "Strong focus on ghost fishing gear and real-time mapping but not a complete multi-class subsea debris intelligence and operational reporting platform.",
+      diff: "Comprehensive subsea debris detection with geo-tagged reports and agency-ready JSON/CSV/GeoJSON outputs."
     },
     {
-      title: "4. Marine Litter Monitoring Tools",
-      do: "Map and quantify surface or shoreline marine litter using drones, cameras or citizen science.",
-      gaps: "Focus on coastal and surface litter, not subsea debris. Do not ingest or analyze side-scan sonar data. Cannot support underwater cleanup mission planning."
+      name: "AI4SHIPWRECKS",
+      limit: "Specialized primarily around shipwreck segmentation and not a mixed-debris end-to-end operational cleanup platform.",
+      diff: "Unified mixed-debris detection, operational dashboard, risk layers and mission planning."
     }
   ];
 
   return (
-    <section id="existing-products-vs-tarang" className="space-y-md scroll-mt-md">
-      <h2 className="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
-        <span className="material-symbols-outlined text-primary">compare_arrows</span>
-        Existing Products vs Tarang
+    <section id="existing-products-vs-tarang" className="space-y-xl scroll-mt-md bg-white p-lg rounded-xl border border-outline-variant/40 shadow-sm">
+      {/* Title */}
+      <h2 className="section-heading text-[#006194]">
+        EXISTING PRODUCTS VS TARANG
       </h2>
-      
-      <p className="font-body-lg text-on-surface-variant max-w-3xl">
-        Several tools exist for sonar processing, underwater perception or marine litter studies, but none provide an end-to-end, India-focused seabed debris intelligence platform like Tarang.
+
+      <p className="body-text text-slate-500 mb-lg">
+        Compare the processing limits of existing systems and check how Tarang resolves them.
       </p>
 
-      {/* Grid of Competitors */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
-        {competitors.map((item, index) => (
-          <div key={index} className="glass-card rounded-xl p-md border border-outline-variant flex flex-col justify-between">
-            <div>
-              <h4 className="font-title-lg text-on-surface mb-sm flex items-center gap-xs">
-                <span className="material-symbols-outlined text-error text-[18px]">cancel</span>
-                {item.title}
+      {/* Grid Layout: 2 Columns on Desktop, 1 Column on Mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-lg mt-md">
+        {comparisons.map((item, index) => (
+          <div 
+            key={index} 
+            className="glass-card rounded-xl p-lg border border-outline-variant/60 bg-white shadow-sm flex flex-col justify-between hover:border-[#006194]/30 transition-colors"
+          >
+            {/* Competitor Header */}
+            <div className="border-b border-outline-variant/40 pb-sm mb-md">
+              <h4 className="sub-heading text-[#ba1a1a] flex items-center gap-xs font-bold uppercase tracking-wider">
+                <span className="material-symbols-outlined text-[18px]">cancel</span>
+                {item.name}
               </h4>
-              <div className="space-y-sm text-body-md text-on-surface-variant">
-                <p><strong>What they do:</strong> {item.do}</p>
-                <p className="text-error/90 bg-error-container/10 p-sm rounded border-l-2 border-error">
-                  <strong>Gaps:</strong> {item.gaps}
+            </div>
+
+            {/* Content Stack: Limitation followed by Differentiator */}
+            <div className="space-y-md flex-grow">
+              <div className="space-y-xs">
+                <span className="label-text text-[10px] text-[#ba1a1a] font-bold tracking-wider block">LIMITATION</span>
+                <p className="body-text text-slate-600 pl-sm border-l-2 border-red-200">
+                  {item.limit}
+                </p>
+              </div>
+
+              <div className="space-y-xs bg-sky-50/50 p-md rounded-xl border border-sky-100/50">
+                <span className="label-text text-[10px] text-[#006194] font-bold tracking-wider block">TARANG DIFFERENTIATOR</span>
+                <p className="body-text text-[#004b73] font-semibold pl-sm border-l-2 border-primary">
+                  {item.diff}
                 </p>
               </div>
             </div>
@@ -55,35 +70,18 @@ const ExistingVsOur = () => {
         ))}
       </div>
 
-      {/* Tarang Highlight Card */}
-      <div className="bg-primary-container/10 border-2 border-primary rounded-xl p-lg relative overflow-hidden mt-lg">
-        <div className="absolute top-0 right-0 bg-primary text-on-primary font-label-md text-label-md px-md py-xs rounded-bl">
-          OUR SOLUTION
-        </div>
-        
-        <h3 className="font-title-lg text-display-lg text-primary flex items-center gap-xs mb-md">
-          <span className="material-symbols-outlined text-primary text-[28px]">check_circle</span>
-          Tarang (Our Product)
+      {/* Target Innovation Keywords HUD banner */}
+      <div className="bg-sky-50 border border-[#006194]/20 rounded-xl p-lg mt-lg shadow-sm">
+        <h3 className="sub-heading text-[#006194] mb-sm font-bold">
+          TARANG CORE ADVANTAGE DIRECTIVES
         </h3>
-
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-md text-body-md text-on-surface-variant">
-          <li className="flex gap-xs items-start">
-            <span className="material-symbols-outlined text-primary text-md">check</span>
-            <span><strong>India's first unified seabed debris platform</strong> focused on subsea anthropogenic anomalies.</span>
-          </li>
-          <li className="flex gap-xs items-start">
-            <span className="material-symbols-outlined text-primary text-md">check</span>
-            <span><strong>End-to-end pipeline:</strong> Ingestion → AI detection → duplicate fusion → geo-tagging → risk assessment → cleanup planning.</span>
-          </li>
-          <li className="flex gap-xs items-start">
-            <span className="material-symbols-outlined text-primary text-md">check</span>
-            <span><strong>Standardized outputs:</strong> Debris classes, confidence scores, and GIS layers ready for MoES/NIOT workflows.</span>
-          </li>
-          <li className="flex gap-xs items-start">
-            <span className="material-symbols-outlined text-primary text-md">check</span>
-            <span><strong>Operational Ready:</strong> Specifically designed for Indian EEZ conditions, multi-vendor sonar formats, and agency workflows.</span>
-          </li>
-        </ul>
+        <div className="flex flex-wrap gap-sm text-[10px] uppercase font-bold text-[#006194]">
+          <span className="bg-white border border-[#006194]/15 px-sm py-[2px] rounded">MULTI-CLASS</span>
+          <span className="bg-white border border-[#006194]/15 px-sm py-[2px] rounded">PHYSICS-ASSISTED</span>
+          <span className="bg-white border border-[#006194]/15 px-sm py-[2px] rounded">DUPLICATE-AWARE</span>
+          <span className="bg-white border border-[#006194]/15 px-sm py-[2px] rounded">OPEN-SET</span>
+          <span className="bg-white border border-[#006194]/15 px-sm py-[2px] rounded">MISSION-READY</span>
+        </div>
       </div>
     </section>
   );

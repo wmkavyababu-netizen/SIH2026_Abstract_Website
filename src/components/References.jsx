@@ -3,89 +3,106 @@ import React from 'react';
 const References = () => {
   const referencesList = [
     {
-      id: 1,
+      num: "[01]",
       title: "MoES – Survey on microplastic and marine debris (2022–2025)",
-      source: "Press Information Bureau (PIB)",
+      org: "Press Information Bureau (PIB)",
+      year: "2025",
       url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2152990"
     },
     {
-      id: 2,
+      num: "[02]",
       title: "India needs a marine litter policy as plastic waste chokes corals",
-      source: "Mongabay India (2025)",
+      org: "Mongabay India",
+      year: "2025",
       url: "https://india.mongabay.com/2025/09/india-needs-a-marine-litter-policy-as-plastic-waste-chokes-corals/"
     },
     {
-      id: 3,
+      num: "[03]",
       title: "India's Coastline Faces Microplastic Threat Despite Drop in Beach Litter",
-      source: "GroundReport (2025)",
+      org: "GroundReport",
+      year: "2025",
       url: "https://groundreport.in/latest/indias-coastline-microplastic-threat-beach-litter-decline-9634625"
     },
     {
-      id: 4,
+      num: "[04]",
       title: "Monsoon flushes nearly half of marine litter into sea",
-      source: "Deccan Herald (2026)",
+      org: "Deccan Herald",
+      year: "2026",
       url: "https://www.deccanherald.com/india/maharashtra/monsoon-flushes-nearly-half-of-marine-litter-into-sea-mumbai-beaches-among-worst-hit-fishery-survey-of-india-4030723"
     },
     {
-      id: 5,
+      num: "[05]",
       title: "Increasing risk of invasive species colonization on marine debris (SE coast of India)",
-      source: "ScienceDaily (2023)",
+      org: "ScienceDaily",
+      year: "2023",
       url: "https://sciencedaily.com/releases/2023/10/231028170657.htm"
     },
     {
-      id: 6,
+      num: "[06]",
       title: "National Institute of Ocean Technology (NIOT) Official Portal",
-      source: "NIOT",
+      org: "NIOT",
+      year: "2026",
       url: "https://www.niot.res.in/"
     },
     {
-      id: 7,
+      num: "[07]",
       title: "Ministry of Earth Sciences (MoES) Official Portal",
-      source: "MoES",
+      org: "MoES",
+      year: "2026",
       url: "https://www.moes.gov.in/"
     },
     {
-      id: 8,
+      num: "[08]",
       title: "Smart India Hackathon 2026 Official Portal",
-      source: "SIH 2026",
+      org: "SIH 2026",
+      year: "2026",
       url: "https://smartindia.gov.in/"
     }
   ];
 
   return (
-    <section id="references" className="space-y-md scroll-mt-md">
-      <h2 className="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
-        <span className="material-symbols-outlined text-primary">menu_book</span>
-        References & Further Reading
+    <section id="references" className="space-y-md scroll-mt-md text-[13px]">
+      {/* Title */}
+      <h2 className="section-heading text-[#006194]">
+        REFERENCES
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
-        {referencesList.map((ref) => (
-          <a
-            key={ref.id}
-            href={ref.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-card rounded-xl p-md border border-outline-variant hover:border-primary flex items-start gap-md hover:shadow-sm hover:scale-[1.005] transition-all duration-200 cursor-pointer"
+      <p className="body-text text-slate-500 mb-lg">
+        List of reference surveys, organizational websites, and published studies cited in this platform.
+      </p>
+
+      {/* References Listing */}
+      <div className="space-y-sm mt-md">
+        {referencesList.map((ref, index) => (
+          <div 
+            key={index}
+            className="p-md bg-white border border-[#e0e3e5] rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-md shadow-sm hover:border-[#006194]/25 transition-colors"
           >
-            <span className="material-symbols-outlined text-primary text-display-lg bg-primary/5 rounded p-xs mt-xs">
-              link
-            </span>
-            <div className="flex-1 min-w-0">
-              <span className="font-label-md text-primary block mb-xs">
-                {ref.source}
-              </span>
-              <h4 className="font-title-lg text-on-surface leading-snug line-clamp-2">
-                {ref.title}
-              </h4>
-              <span className="text-code-sm text-on-surface-variant break-all block mt-xs flex items-center gap-xs font-mono">
-                {ref.url.substring(0, 60)}...
-              </span>
+            <div className="flex items-start gap-md min-w-0 flex-1">
+              <span className="font-bold text-[#006194] text-[12px] pt-[2px]">{ref.num}</span>
+              <div className="space-y-xs min-w-0 flex-1">
+                <h4 className="body-text font-semibold text-slate-800 leading-snug">{ref.title}</h4>
+                <div className="text-[11px] text-slate-500">
+                  <span>Author/Org: <strong>{ref.org}</strong></span>
+                  <span className="mx-sm">•</span>
+                  <span>Year: {ref.year}</span>
+                </div>
+              </div>
             </div>
-            <span className="material-symbols-outlined text-on-surface-variant text-sm self-center">
-              open_in_new
-            </span>
-          </a>
+
+            <div className="flex items-center gap-sm pt-sm md:pt-0 self-end md:self-auto text-[10px]">
+              <span className="text-slate-400 text-[9px] truncate max-w-[150px] hidden lg:block">{ref.url}</span>
+              <a 
+                href={ref.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-[#006194] hover:text-[#004b73] font-bold uppercase tracking-wider inline-flex items-center gap-xs cursor-pointer border border-[#cce5ff] px-sm py-[4px] rounded bg-sky-50/50"
+              >
+                Open Link
+                <span className="material-symbols-outlined text-sm">open_in_new</span>
+              </a>
+            </div>
+          </div>
         ))}
       </div>
     </section>

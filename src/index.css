@@ -7,8 +7,93 @@
     backdrop-filter: blur(10px);
     border: 1px solid #e0e3e5;
   }
+
+  .section-heading {
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #006194 !important;
+    line-height: 34px !important;
+    letter-spacing: 0.03em !important;
+    text-transform: uppercase !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+  @media (min-width: 768px) {
+    .section-heading {
+      font-size: 34px !important;
+      line-height: 42px !important;
+    }
+  }
+
+  .sub-heading {
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    color: #006194 !important;
+    line-height: 25px !important;
+    letter-spacing: 0.01em !important;
+    text-transform: uppercase !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+  @media (min-width: 768px) {
+    .sub-heading {
+      font-size: 23px !important;
+      line-height: 30px !important;
+    }
+  }
+
+  .body-text {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #334155 !important; /* slate-700 */
+    line-height: 25px !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+  @media (min-width: 768px) {
+    .body-text {
+      font-size: 18px !important;
+      line-height: 28px !important;
+    }
+  }
+
+  .label-text {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #64748b !important; /* slate-500 */
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    font-family: 'Inter', sans-serif !important;
+  }
 }
 
 body {
+  font-family: 'Inter', sans-serif;
   background-color: #f7f9fb;
+}
+
+/* Custom cursor styling for landing page only */
+.landing-cursor-active {
+  cursor: none !important;
+}
+
+.landing-cursor-active a,
+.landing-cursor-active button {
+  cursor: none !important;
+}
+
+/* Clean, standard scrollbars for the main page */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

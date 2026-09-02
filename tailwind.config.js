@@ -91,6 +91,25 @@ export default {
         "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
         "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
         "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }]
+      },
+      keyframes: {
+        "slide-down": {
+          "0%": { transform: "translateY(-20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" }
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" }
+        },
+        "fade-in-slow": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" }
+        }
+      },
+      animation: {
+        "slide-down": "slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "slide-up": "slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "fade-in-slow": "fade-in-slow 1.5s ease-out forwards"
       }
     },
   },
